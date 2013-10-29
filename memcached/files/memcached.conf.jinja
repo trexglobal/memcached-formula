@@ -23,17 +23,15 @@ logfile /var/log/memcached.log
 # memory
 -m {{ memcached.get('memory', 64) }}
 
-# Default connection port is 11211
--p {{ memcached.get('port', 11211) }}
-
 # Run the daemon as root. The start-memcached will default to running as root if no
 # -u command is present in this config file
 -u memcache
 
-# Specify which IP address to listen on. The default is to listen on all IP addresses
-# This parameter is one of the only security measures that memcached has, so make sure
-# it's listening on a firewalled interface.
--l {{ memcached.get('address', '127.0.0.1') }}
+# Add the location of your socket by specifying the -s switch:
+-s /var/run/memcached/memcached.sock
+ 
+# Finally add the -a switch to specify the octal file mode of the socket when it is created:
+-a 0766
 
 # Limit the number of simultaneous incoming connections. The daemon default is 1024
 # -c 1024

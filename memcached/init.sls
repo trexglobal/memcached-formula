@@ -14,3 +14,12 @@ memcached:
     - source: salt://memcached/files/memcached.conf.jinja
     - require:
       - pkg: memcached
+
+/var/run/memcached:
+  file.directory:
+    - user: memcache
+    - group: memcache
+    - mode: 0755
+    - require:
+      - pkg: memcached
+      
