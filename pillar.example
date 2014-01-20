@@ -1,2 +1,2 @@
 memcached:
-  memory: 32
+  memory: 64
