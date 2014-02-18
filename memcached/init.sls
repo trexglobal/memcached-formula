@@ -7,7 +7,7 @@ memcached:
       - pkg: memcached
     - watch:
       - file: /etc/memcached.conf
-  
+
 /etc/memcached.conf:
   file.managed:
     - template: jinja
@@ -22,5 +22,6 @@ memcached:
     - mode: 0755
     - require:
       - pkg: memcached
+
 
 
